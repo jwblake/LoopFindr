@@ -1,7 +1,7 @@
 extends layout
 
 block content
-    h1= title
+    img(src= "/images/logo2.png")
     form#formAddVideo(name="addvideo",method="post",action="/addvideo")
         input#inputUrl(type="text", placeholder="Enter Your Url Here", name="url")
         button#btnSubmit(type="submit") submit
