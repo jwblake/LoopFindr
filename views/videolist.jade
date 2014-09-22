@@ -1,0 +1,9 @@
+extends layout
+
+block content
+    h1.
+        Video List
+    ul
+        each video, i in videolist
+            li
+                a(href="#{video.url}")= video.url
