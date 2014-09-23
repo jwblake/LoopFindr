@@ -7,3 +7,9 @@ block content
         each video, i in videolist
             li
                 a(href="#{video.url}")= video.url
+                br
+                a= video.host
+                br
+                a= video.timesQueried
+                br
+                a= video.lastQuery
