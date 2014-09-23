@@ -10,10 +10,8 @@ router.get('/', function(req, res) {
 
 /* POST to Add Video Service */
 router.post('/addvideo', function(req, res) {
-
     // Set our internal DB variable
     var db = req.db;
-
     // Get our form values. These rely on the "name" attributes
     var url = req.body.url.toString();
     var hostString = url.match(/(\.).*(\.)/)[0];
@@ -47,6 +45,7 @@ router.post('/addvideo', function(req, res) {
             		res.redirect("videolist");
         		}
     		});
+
     	} else {
     		console.log("Video " + url + " already loaded");
     		timesQueried = videoTableItem.timesQueried + 1;

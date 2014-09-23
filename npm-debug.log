@@ -1,34 +1,96 @@
 0 info it worked if it ends with ok
-1 verbose cli [ 'node', '/usr/local/bin/npm', 'start' ]
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', 'socket-io' ]
 2 info using npm@2.0.0
 3 info using node@v0.10.32
 4 verbose node symlink /usr/local/bin/node
-5 verbose run-script [ 'prestart', 'start', 'poststart' ]
-6 info prestart LoopFindr@0.0.0
-7 info start LoopFindr@0.0.0
-8 verbose unsafe-perm in lifecycle true
-9 info LoopFindr@0.0.0 Failed to exec start script
-10 verbose stack Error: LoopFindr@0.0.0 start: `node ./bin/www`
-10 verbose stack Exit status 8
-10 verbose stack     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/lifecycle.js:212:16)
-10 verbose stack     at ChildProcess.emit (events.js:98:17)
-10 verbose stack     at maybeClose (child_process.js:756:16)
-10 verbose stack     at Process.ChildProcess._handle.onexit (child_process.js:823:5)
-11 verbose pkgid LoopFindr@0.0.0
-12 verbose cwd /Users/useruser/Desktop/coding/LoopFindr
-13 error Darwin 10.8.0
-14 error argv "node" "/usr/local/bin/npm" "start"
-15 error node v0.10.32
-16 error npm  v2.0.0
-17 error code ELIFECYCLE
-18 error LoopFindr@0.0.0 start: `node ./bin/www`
-18 error Exit status 8
-19 error Failed at the LoopFindr@0.0.0 start script.
-19 error This is most likely a problem with the LoopFindr package,
-19 error not with npm itself.
-19 error Tell the author that this fails on your system:
-19 error     node ./bin/www
-19 error You can get their info via:
-19 error     npm owner ls LoopFindr
-19 error There is likely additional logging output above.
-20 verbose exit [ 1, true ]
+5 verbose readDependencies using package.json deps
+6 verbose cache add [ 'socket-io', null ]
+7 verbose cache add spec="socket-io" args=["socket-io",null]
+8 verbose parsed spec { raw: 'socket-io',
+8 verbose parsed spec   scope: null,
+8 verbose parsed spec   name: 'socket-io',
+8 verbose parsed spec   rawSpec: '',
+8 verbose parsed spec   spec: '*',
+8 verbose parsed spec   type: 'range' }
+9 verbose parsed spec { raw: 'socket-io',
+9 verbose parsed spec   scope: null,
+9 verbose parsed spec   name: 'socket-io',
+9 verbose parsed spec   rawSpec: '',
+9 verbose parsed spec   spec: '*',
+9 verbose parsed spec   type: 'range' }
+10 verbose addNamed [ 'socket-io', '*' ]
+11 verbose addNamed [ null, '*' ]
+12 silly lockFile 65e09d40-socket-io socket-io@*
+13 verbose lock socket-io@* /Users/useruser/.npm/65e09d40-socket-io.lock
+14 silly addNameRange { name: 'socket-io', range: '*', hasData: false }
+15 verbose mapToRegistry name socket-io
+16 verbose mapToRegistry uri https://registry.npmjs.org/socket-io
+17 verbose request on initialization, where is /socket-io
+18 verbose request after pass 1, where is /socket-io
+19 verbose request url raw /socket-io
+20 verbose request resolving registry [ 'https://registry.npmjs.org/', './socket-io' ]
+21 verbose request after pass 2, where is https://registry.npmjs.org/socket-io
+22 verbose request no auth needed
+23 info attempt registry request try #1 at 11:34:28
+24 verbose request id 59e561695e8312e7
+25 http request GET https://registry.npmjs.org/socket-io
+26 http 404 https://registry.npmjs.org/socket-io
+27 verbose headers { date: 'Tue, 23 Sep 2014 15:34:31 GMT',
+27 verbose headers   server: 'CouchDB/1.5.0 (Erlang OTP/R14B04)',
+27 verbose headers   'content-type': 'application/json',
+27 verbose headers   'cache-control': 'max-age=0',
+27 verbose headers   'content-length': '52',
+27 verbose headers   'accept-ranges': 'bytes',
+27 verbose headers   via: '1.1 varnish',
+27 verbose headers   age: '0',
+27 verbose headers   'x-served-by': 'cache-jfk1033-JFK',
+27 verbose headers   'x-cache': 'MISS',
+27 verbose headers   'x-cache-hits': '0',
+27 verbose headers   'x-timer': 'S1411486471.898084,VS0,VE27',
+27 verbose headers   'keep-alive': 'timeout=10, max=50',
+27 verbose headers   connection: 'Keep-Alive' }
+28 silly registry.get cb [ 404,
+28 silly registry.get   { date: 'Tue, 23 Sep 2014 15:34:31 GMT',
+28 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R14B04)',
+28 silly registry.get     'content-type': 'application/json',
+28 silly registry.get     'cache-control': 'max-age=0',
+28 silly registry.get     'content-length': '52',
+28 silly registry.get     'accept-ranges': 'bytes',
+28 silly registry.get     via: '1.1 varnish',
+28 silly registry.get     age: '0',
+28 silly registry.get     'x-served-by': 'cache-jfk1033-JFK',
+28 silly registry.get     'x-cache': 'MISS',
+28 silly registry.get     'x-cache-hits': '0',
+28 silly registry.get     'x-timer': 'S1411486471.898084,VS0,VE27',
+28 silly registry.get     'keep-alive': 'timeout=10, max=50',
+28 silly registry.get     connection: 'Keep-Alive' } ]
+29 silly lockFile 65e09d40-socket-io socket-io@*
+30 silly lockFile 65e09d40-socket-io socket-io@*
+31 verbose stack Error: 404 Not Found: socket-io
+31 verbose stack     at RegClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:259:14)
+31 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:198:65)
+31 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:236:22)
+31 verbose stack     at Request.emit (events.js:98:17)
+31 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1142:14)
+31 verbose stack     at Request.emit (events.js:117:20)
+31 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1096:12)
+31 verbose stack     at IncomingMessage.emit (events.js:117:20)
+31 verbose stack     at _stream_readable.js:943:16
+31 verbose stack     at process._tickCallback (node.js:419:13)
+32 verbose statusCode 404
+33 verbose pkgid socket-io
+34 verbose cwd /Users/useruser/Desktop/coding/LoopFindr
+35 error Darwin 10.8.0
+36 error argv "node" "/usr/local/bin/npm" "install" "socket-io"
+37 error node v0.10.32
+38 error npm  v2.0.0
+39 error code E404
+40 error 404 Not Found: socket-io
+40 error 404
+40 error 404 'socket-io' is not in the npm registry.
+40 error 404 You should bug the author to publish it (or use the name yourself!)
+40 error 404 It was specified as a dependency of 'LoopFindr'
+40 error 404
+40 error 404 Note that you can also install from a
+40 error 404 tarball, folder, http url, or git url.
+41 verbose exit [ 1, true ]

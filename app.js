@@ -9,11 +9,44 @@ var bodyParser = require('body-parser');
 var mongo = require('mongodb');
 var monk = require('monk');
 var db = monk('localhost:27017/LoopFindr');
+var fs = require('fs');
+var youtubedl = require('youtube-dl');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
+var server = require('http').Server(app);
+var io = require('socket.io')(server);
+
+io.sockets.on('connection', function(socket){
+    socket.on('downloadVideo', function(url){
+        // initialize video item for youtube-dl
+        var video = youtubedl(url + "",
+            ['--max-quality=18']);
+        var size = 0;
+        video.on('info', function(info) {
+            size = info.size;
+            console.log('Download started');
+            console.log('filename: ' + info.filename);
+            console.log('size: ' + info.size);
+        });         
+        video.on('end', function() {
+            console.log("\nDownload complete");
+        });
+        var pos = 0;
+        video.on('data', function(data) {
+            pos += data.length;
+            // `size` should not be 0 here.
+            var percent = (pos / size * 100).toFixed(2);
+            process.stdout.cursorTo(0);
+            process.stdout.clearLine(1);
+            process.stdout.write(percent + '%');
+        });
+        // DOWNLOAD
+        video.pipe(fs.createWriteStream('tmp/myvideo.mp4'));
+    })
+});
 
 app.use(express.static(__dirname + "/public"));
 
@@ -37,6 +70,7 @@ app.use(function(req,res,next){
 
 app.use('/', routes);
 app.use('/users', users);
+
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
